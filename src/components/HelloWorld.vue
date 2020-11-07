@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div id="test">
     <p>{{ defaultText }}</p>
+    <p> Focus me app </p>
   </div>
 </template>
 
@@ -21,5 +22,9 @@ export default {
 <style scoped>
 p {
   font-size: 20px;
+}
+
+#test {
+  background-color: aquamarine;
 }
 </style>
