@@ -17,8 +17,8 @@ html {
   height: 300px;
   margin: 0;
   padding: 0;
-
 }
+
 body {
   margin: 0;
 }

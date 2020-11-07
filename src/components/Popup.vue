@@ -1,5 +1,6 @@
 <template>
-  <div id="big">
+  <div id="big" 
+  :class="highMode ? 'high' : 'normal'">
     <div id='header'>
       {{ title }}
     </div>
@@ -8,12 +9,14 @@
       <form @submit.prevent="submit">
         <br><br><br>
         <input v-model="message">
-        <input type="submit" value="Submit" class="btn">
+        <br><br>
+        <input type="submit" value="Start" class="btn">
+        <input type="submit" value="Finish" class="btn">
       </form>
     </div>
 
     <footer >
-      <br><br><br><br><br><br>
+      <br><br><br>
       <button @click="highMode = !highMode">{{ btnText }}</button>
     </footer>
   </div>
@@ -27,7 +30,7 @@ export default {
       title: 'Focus-me',
       description: 'What project are you working on now?',
       message: '',
-      highMode: false,
+      highMode: false
     }
   },
   methods: {
@@ -71,11 +74,18 @@ export default {
   padding: 0;
   background-color: #292829;
   color: #fff5d9;
-  background-image: url('~@/assets/header.jpg');
-  background-size:     cover;                      /* <------ */
+  background-size:     cover;       
   background-repeat:   no-repeat;
   background-position: center center;
   text-align: center;
+}
+
+.high {
+  background-image: url('~@/assets/header3.gif');
+}
+
+.normal {
+  background-image: url('~@/assets/header.jpg');
 }
 
 input
