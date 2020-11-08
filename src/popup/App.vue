@@ -1,16 +1,19 @@
 <template>
   <Popup />
   <!-- <Confirmation /> -->
+  <!-- <Timer /> -->
 </template>
 
 <script>
 import Popup from '@/components/Popup.vue'
 // import Confirmation from '@/components/Confirmation.vue'
+// import Timer from '@/components/Timer.vue'
 
 export default {
   name: 'App',
   components: { Popup}
   // components: { Confirmation}
+  // components: {Timer}
 }
 </script>
 

@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'Popup',
+  name: 'Confirmation',
   data() {
     return {
       title: 'Focus-me',
