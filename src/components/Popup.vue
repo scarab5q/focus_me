@@ -6,12 +6,12 @@
     </div>
     <div id = "project">
       <p> {{ description }} </p>
-      <form @submit.prevent="submit">
+      <form>
         <br><br><br>
         <input v-model="message">
         <br><br>
-        <input type="submit" value="Start" class="btn">
-        <input type="submit" value="Finish" class="btn">
+        <input @click="submit($event)" type="submit" value="Start" class="btn">
+        <input @click="submit2($event)" type="submit" value="Finish" class="btn">
       </form>
     </div>
 
@@ -34,9 +34,19 @@ export default {
     }
   },
   methods: {
-    submit() {
-
-    }
+    submit(e) {
+      e.preventDefault();
+      chrome.storage.sync.set({'message': this.message}, function() {
+        console.log('Settings saved');
+      });
+     
+    },
+    submit2(e) {
+      e.preventDefault();
+      chrome.storage.sync.get("message", function (obj) {
+        console.log(obj);
+      });
+      }
   },
   mounted () {
     browser.runtime.sendMessage({})

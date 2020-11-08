@@ -5,9 +5,9 @@
     </div>
 
     <div id="app">
-      <!-- <button @click="start">Start</button>
+      <button @click="start">Start</button>
       <button @click="stop">Stop</button>
-      <button @click="reset">Reset</button> -->
+      <button @click="reset">Reset</button>
       <br><br>
       <p>{{formattedElapsedTime}}</p>
     </div>
@@ -48,10 +48,21 @@ export default {
     },
     stop() {
       clearInterval(this.timer);
+      chrome.storage.sync.set({'timer': this.formattedElapsedTime}, function() {
+        console.log('Settings saved');
+      });
     },
     reset() {
+      chrome.storage.sync.get('timer', function (obj) {
+        console.log(obj);
+      });      
       this.elapsedTime = 0;
-    }
+    },
+    take_time() {
+      chrome.storage.sync.get('timer', function (obj) {
+        console.log(obj);
+      });
+    } 
   }
 }
 </script>
@@ -80,7 +91,7 @@ p {
   font-size: 25px;
 }
 
-/* button {
+button {
     background-color: rgba(0, 0, 0, 0.5);
     border: 2px solid  #fff5d9;
     border-radius: 6px;
@@ -90,6 +101,6 @@ p {
 
 button:hover {
   font-weight: bold;
-} */
+}
 
 </style>
