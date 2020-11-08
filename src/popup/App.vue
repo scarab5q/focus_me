@@ -1,13 +1,16 @@
 <template>
   <Popup />
+  <!-- <Confirmation /> -->
 </template>
 
 <script>
 import Popup from '@/components/Popup.vue'
+// import Confirmation from '@/components/Confirmation.vue'
 
 export default {
   name: 'App',
   components: { Popup}
+  // components: { Confirmation}
 }
 </script>
 
